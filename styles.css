@@ -17,6 +17,22 @@
   height: 100%;
 }
 
+.test span {
+  float: left;
+  /* //width: 100px;
+  //height: 100px; */
+  margin: 0 5px;
+  /* //background: #ccc;
+  //text-align: center;
+  //line-height: 100px; */
+  opacity: 0;
+  animation: fadeInNew 1s ease-in both;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  height: 100px;
+}
+
 .speero-news {
   position: fixed;
   width: 100vw;
@@ -26,6 +42,8 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
+  background: #fbf8ec;
+
   //animation-duration: 1s;
   //animation-delay: var(--animation-duration);
   //animation-name: fadeIn;
@@ -33,14 +51,18 @@
   // opacity: 0;
 }
 
-// .news{
-// 		width: 100vw;
-// 	height: 100vh;
-// 	display: flex;
-// }
-
 .speero-news > * {
-  color: transparent;
+  // color: transparent;
+}
+
+.test span:nth-child(1) {
+  animation-delay: 3s;
+}
+.test span:nth-child(2) {
+  animation-delay: 4s;
+}
+.test span:nth-child(3) {
+  animation-delay: 5s;
 }
 
 .speero-splash-wrapper svg {
@@ -90,10 +112,21 @@
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translate3d(0, -100px, 0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInNew {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -300px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }

@@ -19,7 +19,7 @@ checkIfReady(function () {
 function addSplashAnimation() {
   const splashContainer = `<div class="speero-splash-wrapper">
   <div class="speero-news">
-  <div>
+  <div class="test">
     	<span>Gympass</span>
     	<span> is</span>
     	<span> becoming</span>
@@ -34,10 +34,10 @@ function addSplashAnimation() {
   document.querySelector("html").classList.add("unscrollable");
   document.querySelector("body").insertAdjacentHTML("afterbegin", splashContainer);
 
-  document.querySelectorAll(".speero-news span").forEach((el, index) => {
-    el.classList.add("speero-fadeindown-animation");
-    el.style.animationDelay = 3 + index + 1 + "s";
-  });
+  // document.querySelectorAll('.speero-news span').forEach((el, index) =>{
+  // el.classList.add("speero-fadeindown-animation");
+  // el.style.animationDelay = 3 + index + 1 + "s";
+  //})
 
   document.querySelector(".speero-splash-wrapper button").addEventListener("click", function (e) {
     document.querySelector("html").classList.remove("unscrollable");
