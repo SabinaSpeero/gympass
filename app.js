@@ -1,20 +1,7 @@
-const myElem = document.body || document.documentElement;
-const config = {
-  childList: true,
-  subtree: true,
-};
-var observer = new MutationObserver(function () {
-  if (!document.querySelector(".speero-container")) {
-    if (document.querySelectorAll("").length > 0) {
-      observer.disconnect();
-      runFn();
-    }
-  }
-});
-
-observer.observe(myElem, config);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const splashSvg = `<svg width="258" height="237" viewBox="0 0 258 237" xmlns="http://www.w3.org/2000/svg">
+<rect width="200%" height="200%" fill="#FBF8EC" />
+<path d="M125.334 95.334C117.555 77.1592 80.3077 63.49 52.2539 63.49C28.4469 63.49 12.1748 71.7555 12.1748 89.6867C12.1748 103.599 24.4284 113.281 34.5661 113.281C56.7291 113.281 69.4545 91.8178 97.9801 91.8178C108.118 91.8178 116.596 96.293 116.596 102.915C116.596 105.746 114.709 107.862 111.878 107.862C109.518 107.862 107.768 106.674 103.384 106.674C74.6147 106.674 26.529 147.728 26.529 173.452C26.529 186.193 36.6667 197.046 49.6357 197.046C58.3578 197.046 66.8516 192.327 70.6266 184.062C79.3487 166.831 74.6451 158.581 87.3554 131.455C91.6022 122.49 99.137 117.543 105.028 117.543C108.803 117.543 111.634 119.902 111.634 122.977C111.634 130.055 94.1899 130.299 94.1899 166.618C94.1899 192.815 101.268 235.984 127.434 235.984C140.16 235.984 150.069 225.374 150.069 212.862C150.069 209.315 149.369 205.784 147.938 202.709C139.916 185.249 126.947 182.19 114.222 154.806C112.578 151.274 111.634 147.728 111.634 144.424C111.634 137.818 114.222 134.271 119.184 134.271C122.259 134.271 124.375 136.402 124.375 139.462C124.375 169.434 181.898 200.091 205.948 200.091C219.146 200.091 229.999 189.938 229.999 177.441C229.999 164.228 219.161 153.375 205.477 153.375C192.979 153.375 184.486 154.79 173.648 154.79C160.922 154.79 135.213 155.034 135.213 139.934C135.213 135.915 138.288 134.271 140.16 134.271C146.523 134.271 145.822 142.994 170.573 142.994C197.211 142.994 247.9 121.044 247.9 93.9184C247.9 80.9342 237.29 70.3246 224.793 70.3246C219.602 70.3246 214.655 72.2121 210.408 75.5152C195.552 87.0686 199.099 105.243 174.576 123.175C168.914 127.65 163.267 129.309 157.848 129.309C154.544 129.309 148.425 128.365 148.425 122.703C148.425 120.115 150.069 118.456 152.672 117.984C170.588 114.909 197.698 77.8746 197.698 24.5526C197.698 11.812 187.332 1.43068 174.592 1.43068C161.851 1.43068 151.485 11.812 151.485 24.5526C151.485 43.1841 162.323 56.3966 162.323 86.6119C162.323 99.1091 155.245 107.846 148.41 107.846C145.822 107.846 143.463 105.715 143.463 103.128C143.463 100.54 147.482 96.0495 147.482 86.1401C147.482 55.94 112.593 0.0302734 88.0707 0.0302734C73.2142 0.0302734 64.964 11.3553 64.964 22.6803C64.964 29.7585 68.0389 36.8366 73.6862 41.0835C88.0708 52.8804 102.455 54.7679 126.034 73.4146C132.64 78.6053 136.172 85.6834 136.172 91.5895C136.172 96.3082 134.041 99.1395 130.281 99.1395C127.922 99.1395 126.262 97.7239 125.334 95.3645H125.288L125.334 95.334Z" fill="#F2496B"/>
+</svg>`;
 
 //check if dom is loaded
 function checkIfReady(fn) {
@@ -26,22 +13,34 @@ function checkIfReady(fn) {
 }
 
 checkIfReady(function () {
-  runFn();
+  addSplashAnimation();
 });
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function addSplashAnimation() {
+  const splashContainer = `<div class="speero-splash-wrapper">
+  <div class="speero-news">
+  <div>
+    	<span>Gympass</span>
+    	<span> is</span>
+    	<span> becoming</span>
+    	</div>
+    <div>Wellhub</div>
+    <p>Coming soon</p>
+    <button>Continue to website</button>
+  </div>
+  ${splashSvg}
+</div>`;
 
-function initObserver() {
-  const targetNode = document.querySelector("body");
-  const config = { childList: true, subtree: true };
+  document.querySelector("html").classList.add("unscrollable");
+  document.querySelector("body").insertAdjacentHTML("afterbegin", splashContainer);
 
-  const myFunc = (mutationsList, observer) => {
-    for (const mutation of mutationsList) {
-      if (mutation.target.id === "") {
-        //
-      }
-    }
-  };
-  const observer = new MutationObserver(myFunc);
-  observer.observe(targetNode, config);
+  document.querySelectorAll(".speero-news span").forEach((el, index) => {
+    el.classList.add("speero-fadeindown-animation");
+    el.style.animationDelay = 3 + index + 1 + "s";
+  });
+
+  document.querySelector(".speero-splash-wrapper button").addEventListener("click", function (e) {
+    document.querySelector("html").classList.remove("unscrollable");
+    document.querySelector(".speero-splash-wrapper").remove();
+  });
 }

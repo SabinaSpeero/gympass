@@ -1,0 +1,99 @@
+:root {
+  --animation-duration: 3s;
+}
+
+.speero-splash-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #fbf8ec;
+}
+
+.unscrollable {
+  overflow: hidden;
+  height: 100%;
+}
+
+.speero-news {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  //animation-duration: 1s;
+  //animation-delay: var(--animation-duration);
+  //animation-name: fadeIn;
+  //animation-fill-mode: forwards;
+  // opacity: 0;
+}
+
+// .news{
+// 		width: 100vw;
+// 	height: 100vh;
+// 	display: flex;
+// }
+
+.speero-news > * {
+  color: transparent;
+}
+
+.speero-splash-wrapper svg {
+  animation-duration: var(--animation-duration);
+  animation-delay: 1s;
+  animation-name: createBox;
+  animation-fill-mode: forwards;
+}
+
+.speero-fadeindown-animation {
+  animation-name: fadeInDown;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  //animation-delay: var(--animation-duration);
+}
+
+@keyframes createBox {
+  0% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(360deg) scale(10);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg) scale(10);
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+  }
+  100% {
+    display: block;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
