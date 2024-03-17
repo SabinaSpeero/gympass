@@ -1,15 +1,7 @@
-:root {
-  --animation-duration: 3s;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,400;0,700;1,300&display=swap");
 
-.speero-splash-wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: #fbf8ec;
+:root {
+  --animation-duration: 1s;
 }
 
 .unscrollable {
@@ -17,74 +9,104 @@
   height: 100%;
 }
 
-.test span {
-  float: left;
-  /* //width: 100px;
-  //height: 100px; */
-  margin: 0 5px;
-  /* //background: #ccc;
-  //text-align: center;
-  //line-height: 100px; */
-  opacity: 0;
-  animation: fadeInNew 1s ease-in both;
+.speero-splash-wrapper,
+.speero-news {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: end;
-  align-items: flex-end;
-  height: 100px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fbf8ec;
+}
+
+.speero-splash-wrapper {
+  overflow: hidden;
+  z-index: 100;
 }
 
 .speero-news {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  background: #fbf8ec;
-
-  //animation-duration: 1s;
-  //animation-delay: var(--animation-duration);
-  //animation-name: fadeIn;
-  //animation-fill-mode: forwards;
-  // opacity: 0;
 }
 
-.speero-news > * {
-  // color: transparent;
+.speero-splash-wrapper .splash-svg {
+  -webkit-animation: splashEffect var(--animation-duration) ease forwards 0.5s;
+  animation: splashEffect var(--animation-duration) ease forwards 0.5s;
 }
 
-.test span:nth-child(1) {
-  animation-delay: 3s;
-}
-.test span:nth-child(2) {
-  animation-delay: 4s;
-}
-.test span:nth-child(3) {
-  animation-delay: 5s;
+.speero-gympass-line svg {
+  float: left;
+  margin: 0 5px;
+  -webkit-animation: fadeInFromTop 0.3s ease-in both;
+  animation: fadeInFromTop 0.3s ease-in both;
 }
 
-.speero-splash-wrapper svg {
-  animation-duration: var(--animation-duration);
-  animation-delay: 1s;
-  animation-name: createBox;
-  animation-fill-mode: forwards;
+.speero-gympass-line svg:nth-child(1) {
+  -webkit-animation-delay: calc(var(--animation-duration) + 0.5s);
+  animation-delay: calc(var(--animation-duration) + 0.5s);
 }
 
-.speero-fadeindown-animation {
-  animation-name: fadeInDown;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
-  //animation-delay: var(--animation-duration);
+.speero-gympass-line svg:nth-child(2) {
+  margin-bottom: 6px;
+  margin-left: 20px;
+  -webkit-animation-delay: calc(var(--animation-duration) + 1s);
+  animation-delay: calc(var(--animation-duration) + 1s);
 }
 
-@keyframes createBox {
+.speero-wellness-line {
+  margin-top: 38px;
+  -webkit-animation: fadeInFromTop 0.3s ease-in both;
+  animation: fadeInFromTop 0.3s ease-in both;
+  -webkit-animation-delay: calc(var(--animation-duration) + 1.5s);
+  animation-delay: calc(var(--animation-duration) + 1.5s);
+}
+
+.speero-coming-line {
+  margin: 137px auto;
+  -webkit-animation: fadeIn 0.3s ease-in both;
+  animation: fadeIn 0.3s ease-in both;
+  -webkit-animation-delay: calc(var(--animation-duration) + 2s);
+  animation-delay: calc(var(--animation-duration) + 2s);
+}
+
+.speero-splash-wrapper button {
+  padding: 16px 32px;
+  border-radius: 35px;
+  background: #d8385e;
+  color: white;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 150%;
+  -webkit-animation: bounce 1s ease-in both;
+  animation: bounce 1s ease-in both;
+  -webkit-animation-delay: calc(var(--animation-duration) + 2.5s);
+  animation-delay: calc(var(--animation-duration) + 2.5s);
+}
+
+.speero-splash-wrapper button:hover {
+  cursor: pointer;
+}
+
+@-webkit-keyframes splashEffect {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   90% {
-    transform: rotate(360deg) scale(10);
+    -webkit-transform: rotate(360deg) scale(20);
+    transform: rotate(360deg) scale(20);
   }
   90% {
     opacity: 1;
@@ -93,40 +115,148 @@
     opacity: 0;
   }
   100% {
-    transform: rotate(360deg) scale(10);
+    -webkit-transform: rotate(360deg) scale(20);
+    transform: rotate(360deg) scale(20);
   }
   100% {
     display: none;
+  }
+}
+
+@keyframes splashEffect {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  90% {
+    -webkit-transform: rotate(360deg) scale(20);
+    transform: rotate(360deg) scale(20);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(20);
+    transform: rotate(360deg) scale(20);
+  }
+  100% {
+    display: none;
+  }
+}
+
+@-webkit-keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 @keyframes fadeIn {
-  0% {
-    display: none;
-  }
-  100% {
-    display: block;
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -100px, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInNew {
   from {
     opacity: 0;
-    transform: translate3d(0, -300px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translateY(-15%);
+    transform: translateY(-15%);
+  }
+  90% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  95% {
+    -webkit-transform: translateY(-7%);
+    transform: translateY(-7%);
+  }
+  97% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  99% {
+    -webkit-transform: translateY(-3%);
+    transform: translateY(-3%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translateY(-15%);
+    transform: translateY(-15%);
+  }
+  90% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  95% {
+    -webkit-transform: translateY(-7%);
+    transform: translateY(-7%);
+  }
+  97% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  99% {
+    -webkit-transform: translateY(-3%);
+    transform: translateY(-3%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
