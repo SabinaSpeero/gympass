@@ -99,6 +99,47 @@
   cursor: pointer;
 }
 
+@media (max-width: 767px) {
+  .speero-gympass-line {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .speero-gympass-line svg:nth-child(2) {
+    margin-left: 0;
+  }
+
+  .speero-news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  .speero-news svg {
+    width: 70%;
+  }
+
+  .speero-wellness-line,
+  .speero-coming-line {
+    margin: 0;
+    text-align: center;
+  }
+}
+
 @-webkit-keyframes splashEffect {
   0% {
     -webkit-transform: rotate(0deg);
