@@ -40,15 +40,15 @@
 }
 
 .speero-splash-wrapper .splash-svg {
-  -webkit-animation: splashEffect var(--animation-duration) ease forwards 0.5s;
-  animation: splashEffect var(--animation-duration) ease forwards 0.5s;
+  -webkit-animation: splashEffect var(--animation-duration) cubic-bezier(0, 0.8, 1, 1) forwards 0.5s;
+  animation: splashEffect var(--animation-duration) cubic-bezier(0, 0.8, 1, 1) forwards 0.5s;
 }
 
 .speero-gympass-line svg {
   float: left;
   margin: 0 5px;
-  -webkit-animation: fadeInFromTop 0.3s ease-in both;
-  animation: fadeInFromTop 0.3s ease-in both;
+  -webkit-animation: fadeInFromTop 0.3s cubic-bezier(0.22, 0, 0.98, 0.61) both;
+  animation: fadeInFromTop 0.3s cubic-bezier(0.22, 0, 0.98, 0.61) both;
 }
 
 .speero-gympass-line svg:nth-child(1) {
@@ -58,6 +58,7 @@
 
 .speero-gympass-line svg:nth-child(2) {
   margin-bottom: 6px;
+  margin-top: 6px;
   margin-left: 20px;
   -webkit-animation-delay: calc(var(--animation-duration) + 1s);
   animation-delay: calc(var(--animation-duration) + 1s);
@@ -65,16 +66,16 @@
 
 .speero-wellness-line {
   margin-top: 38px;
-  -webkit-animation: fadeInFromTop 0.3s ease-in both;
-  animation: fadeInFromTop 0.3s ease-in both;
+  -webkit-animation: fadeInFromTop 0.3s cubic-bezier(0.22, 0, 0.98, 0.61) both;
+  animation: fadeInFromTop 0.3s cubic-bezier(0.22, 0, 0.98, 0.61) both;
   -webkit-animation-delay: calc(var(--animation-duration) + 1.5s);
   animation-delay: calc(var(--animation-duration) + 1.5s);
 }
 
 .speero-coming-line {
   margin: 137px auto;
-  -webkit-animation: fadeIn 0.3s ease-in both;
-  animation: fadeIn 0.3s ease-in both;
+  -webkit-animation: fadeIn 0.3s cubic-bezier(0.94, 0.22, 0.51, 0.91) both;
+  animation: fadeIn 0.3s cubic-bezier(0.94, 0.22, 0.51, 0.91) both;
   -webkit-animation-delay: calc(var(--animation-duration) + 2s);
   animation-delay: calc(var(--animation-duration) + 2s);
 }
@@ -89,8 +90,8 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 150%;
-  -webkit-animation: bounce 1s ease-in both;
-  animation: bounce 1s ease-in both;
+  -webkit-animation: bounce 1s cubic-bezier(0.22, 0, 0.98, 0.61) both;
+  animation: bounce 1s cubic-bezier(0.22, 0, 0.98, 0.61) both;
   -webkit-animation-delay: calc(var(--animation-duration) + 2.5s);
   animation-delay: calc(var(--animation-duration) + 2.5s);
 }
@@ -126,7 +127,6 @@
     align-items: center;
     -webkit-box-pack: space-evenly;
     -ms-flex-pack: space-evenly;
-    justify-content: space-evenly;
   }
 
   .speero-news svg {
@@ -138,6 +138,9 @@
     margin: 0;
     text-align: center;
   }
+  .speero-coming-line {
+    margin: 7vh auto !important;
+  }
 }
 
 @-webkit-keyframes splashEffect {
@@ -145,22 +148,27 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  50% {
+    -webkit-transform: rotate(10deg) scale(10);
+    transform: rotate(0deg) scale(10);
+  }
+  70% {
+    -webkit-transform: rotate(120deg) scale(15);
+    transform: rotate(180deg) scale(16);
+  }
   90% {
-    -webkit-transform: rotate(360deg) scale(20);
+    -webkit-transform: rotate(360deg) scale(30);
     transform: rotate(360deg) scale(20);
   }
   90% {
     opacity: 1;
   }
-  100% {
-    opacity: 0;
-  }
-  100% {
+  99% {
     -webkit-transform: rotate(360deg) scale(20);
     transform: rotate(360deg) scale(20);
   }
   100% {
-    display: none;
+    opacity: 0;
   }
 }
 
@@ -169,22 +177,27 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  50% {
+    -webkit-transform: rotate(10deg) scale(10);
+    transform: rotate(0deg) scale(10);
+  }
+  70% {
+    -webkit-transform: rotate(120deg) scale(15);
+    transform: rotate(180deg) scale(16);
+  }
   90% {
-    -webkit-transform: rotate(360deg) scale(20);
+    -webkit-transform: rotate(360deg) scale(30);
     transform: rotate(360deg) scale(20);
   }
   90% {
     opacity: 1;
   }
-  100% {
-    opacity: 0;
-  }
-  100% {
+  99% {
     -webkit-transform: rotate(360deg) scale(20);
     transform: rotate(360deg) scale(20);
   }
   100% {
-    display: none;
+    opacity: 0;
   }
 }
 
