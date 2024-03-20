@@ -39,8 +39,4 @@ function addSplashAnimation() {
     document.querySelector("html").classList.remove("unscrollable");
     document.querySelector(".speero-splash-wrapper").remove();
   });
-
-  setTimeout(function(){
-    if()
-  })
 }
