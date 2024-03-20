@@ -39,4 +39,11 @@ function addSplashAnimation() {
     document.querySelector("html").classList.remove("unscrollable");
     document.querySelector(".speero-splash-wrapper").remove();
   });
+
+  //if the button is not clicked, remove the wrapper entirely
+  //6500 = var(--animation-duration) + 2.5s + 2s (see CSS for speero-splash-wrapper)
+  setTimeout(function () {
+    document.querySelector("html").classList.remove("unscrollable");
+    document.querySelector(".speero-splash-wrapper").remove();
+  }, 6500);
 }

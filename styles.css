@@ -29,7 +29,8 @@
 .speero-splash-wrapper {
   overflow: hidden;
   z-index: 100;
-  animation: fadeOut 0.5s ease-in-out forwards calc(var(--animation-duration) + 2.5s + 3s); /*the button appears after var(--animation-duration) + 2.5s. We hide the overlay 3s after the button is visible*/
+  -webkit-animation: fadeOut 0.5s ease-in-out forwards calc(var(--animation-duration) + 2.5s + 2s);
+  animation: fadeOut 0.5s ease-in-out forwards calc(var(--animation-duration) + 2.5s + 2s); /*the button appears after var(--animation-duration) + 2.5s. We hide the overlay 2s after the button is visible*/
 }
 
 .speero-news {
@@ -43,6 +44,7 @@
 .speero-splash-wrapper .splash-svg {
   /* -webkit-animation: splashEffect var(--animation-duration) cubic-bezier(0, 0.8, 1, 1) forwards 0.5s;
   animation: splashEffect var(--animation-duration) cubic-bezier(0, 0.8, 1, 1) forwards 0.5s; */
+  -webkit-animation: splashEffect var(--animation-duration) ease-in-out forwards 0.5s;
   animation: splashEffect var(--animation-duration) ease-in-out forwards 0.5s;
 }
 
@@ -145,8 +147,9 @@
   }
 }
 
-@keyframes splashEffect {
+@-webkit-keyframes splashEffect {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   80% {
@@ -154,10 +157,37 @@
   }
   90% {
     opacity: 0.5;
+    -webkit-transform: rotate(360deg) scale(15);
+    transform: rotate(360deg) scale(15);
+  }
+  99% {
+    -webkit-transform: rotate(360deg) scale(15);
     transform: rotate(360deg) scale(15);
   }
   100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes splashEffect {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+    -webkit-transform: rotate(360deg) scale(15);
     transform: rotate(360deg) scale(15);
+  }
+  99% {
+    -webkit-transform: rotate(360deg) scale(15);
+    transform: rotate(360deg) scale(15);
+  }
+  100% {
     opacity: 0;
     display: none;
   }
@@ -274,6 +304,15 @@
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
